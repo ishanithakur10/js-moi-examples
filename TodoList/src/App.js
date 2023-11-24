@@ -5,8 +5,8 @@ import { Toaster } from "react-hot-toast";
 import Loader from "./components/Loader";
 
 // ------- Update with your credentials ------------------ //
-const logicId = "Logic Id Here"
-const mnemonic = "Your Mnemonic Here"
+const logicId = "0x080000ef9abde1a9f6bd49393c47a6102c013029e3768d1d1d7a79cfee9e151400b529"
+const mnemonic = "alarm shock caught lake divorce athlete opinion coral gasp deliver frown use"
 
 const logicDriver = await gettingLogicDriver(
   logicId,
@@ -91,14 +91,25 @@ function App() {
     }
   };
 
+  const sortTodos = () => {
+    const sortedTodos = [...todos].sort((a, b) => {
+      // Assuming 'name' is the property you want to sort by
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      return nameA.localeCompare(nameB);
+    });
+
+    setTodos(sortedTodos);
+  };
+
   return (
     <>
       <Toaster />
-      <section class="section-center">
-        <form class="todo-form">
-          <p class="alert"></p>
-          <h3>Todo buddy</h3>
-          <div class="form-control">
+      <section className="section-center">
+        <form className="todo-form">
+          <p className="alert"></p>
+          <h3 >To do buddy</h3>
+          <div className="form-control">
             <input
               value={todoName}
               name="todoName"
@@ -107,34 +118,41 @@ function App() {
               id="todo"
               placeholder="e.g. Attend Moi Event"
             />
-            <button onClick={add} type="submit" class="submit-btn">
+            <button onClick={add} type="submit" className="submit-btn">
             {adding ? <Loader color={"#000"} loading={adding} /> :"Add Todo"}
             </button>
           </div>
         </form>
-        {!loading ? <div class="todo-container show-container">
-          {todos.map((todo, index) => {
-            return (
-              <div class="todo-list">
+        {!loading ? (
+          <div className="todo-container show-container">
+            <button onClick={sortTodos} className="sort-btn">
+              Sort
+            </button>
+            {todos.map((todo, index) => (
+              <div className="todo-list" key={index}>
                 {todo.name}
                 {todo.completed ? (
-                  <img className="icon" src="/images/check.svg" />
+                  <img className="icon" src="/images/check.svg" alt="completed" />
                 ) : (
                   <span
                     onClick={() => markCompleted(index)}
                     className="underline text-red pointer"
                   >
-                    {marking === index? <Loader color={"#000"} loading={marking === 0 ? true:marking} /> :"Mark Completed!"}
+                    {marking === index ? (
+                      <Loader color={"#000"} loading={marking === 0 ? true : marking} />
+                    ) : (
+                      "Mark Completed!"
+                    )}
                   </span>
                 )}
               </div>
-            );
-          })}
-        </div> 
-        : 
-        <div style={{marginTop:"20px"}}>
-          <Loader color={"#000"} loading={loading} />  
-        </div>}
+            ))}
+          </div>
+        ) : (
+          <div style={{ marginTop: "20px" }}>
+            <Loader color={"#000"} loading={loading} />
+          </div>
+        )}
       </section>
     </>
   );

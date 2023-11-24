@@ -1,7 +1,7 @@
 const { VoyageProvider, Wallet, LogicFactory} = require("js-moi-sdk");
 const manifest = require("./todolist.json")
 
-const MNEMONIC = "Your Mnemonic Here"
+const MNEMONIC = "alarm shock caught lake divorce athlete opinion coral gasp deliver frown use";
 
 const constructWallet = async () => {
     const provider = new VoyageProvider("babylon")

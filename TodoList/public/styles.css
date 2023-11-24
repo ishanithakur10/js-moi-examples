@@ -22,7 +22,7 @@ Variables
   --clr-primary-3: hsl(205, 72%, 37%);
   --clr-primary-4: hsl(205, 63%, 48%);
   /* primary/main color */
-  --clr-primary-5: #49a6e9;
+  --clr-primary-5: #49e979;
   /* lighter shades of primary color */
   --clr-primary-6: hsl(205, 89%, 70%);
   --clr-primary-7: hsl(205, 90%, 76%);
@@ -35,14 +35,14 @@ Variables
   --clr-grey-3: hsl(209, 34%, 30%);
   --clr-grey-4: hsl(209, 28%, 39%);
   /* grey used for paragraphs */
-  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-5: hsl(93, 22%, 49%);
   --clr-grey-6: hsl(209, 23%, 60%);
   --clr-grey-7: hsl(211, 27%, 70%);
   --clr-grey-8: hsl(210, 31%, 80%);
   --clr-grey-9: hsl(212, 33%, 89%);
-  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-grey-10: hsl(197, 59%, 70%);
   --clr-white: #fff;
-  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-dark: hsl(0, 60%, 65%);
   --clr-red-light: hsl(360, 71%, 66%);
   --clr-green-dark: hsl(125, 67%, 44%);
   --clr-green-light: hsl(125, 71%, 66%);
@@ -72,7 +72,7 @@ Global Styles
 }
 body {
   font-family: var(--ff-secondary);
-  background: var(--clr-grey-10);
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,252,106,0.891281512605042) 100%);
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
@@ -85,6 +85,12 @@ a {
 }
 img {
   display: block;
+}
+.sort-btn{
+  border:none;
+  font-size: medium;
+  margin-bottom: 20px;
+  color: rgb(206, 73, 233);
 }
 
 h1,
